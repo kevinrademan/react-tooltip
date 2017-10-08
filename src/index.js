@@ -18,6 +18,7 @@ import getPosition from './utils/getPosition'
 import getTipContent from './utils/getTipContent'
 import { parseAria } from './utils/aria'
 import nodeListToArray from './utils/nodeListToArray'
+import equal from 'deep-equal'
 
 /* CSS */
 import cssStyle from './style'
@@ -134,6 +135,13 @@ class ReactTooltip extends Component {
     if (isChanged) {
       this.setState({ ariaProps: newAriaProps })
     }
+  }
+
+  shouldComponentUpdate (nextProps, nextState) {
+    if (equal(nextProps, this.props) && equal(nextState, this.state)) {
+      return false
+    }
+    return true
   }
 
   componentWillUnmount () {

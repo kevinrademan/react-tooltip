@@ -44,6 +44,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.0",
+    "deep-equal": "^1.0.1",
     "prop-types": "^15.5.8"
   },
   "engines": {
